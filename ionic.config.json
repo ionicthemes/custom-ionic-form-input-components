@@ -1,0 +1,7 @@
+{
+  "name": "custom-form-components",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
