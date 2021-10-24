@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Blank
+      Custom Inputs
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,65 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
+      <ion-title size="large">Custom Inputs</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div>
+    <ion-item-divider>
+      <ion-label>Rating Component</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="ratingForm">
+      <ion-list class="ratings-list" lines="full">
+        <ion-item>
+          <ion-label class="rating-label">Rate</ion-label>
+          <app-rating-input formControlName="rate" max="5"></app-rating-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="rating-label">Read Only</ion-label>
+          <app-rating-input formControlName="rate2" max="3" readOnly="true"></app-rating-input>
+        </ion-item>
+        <ion-item>
+          <ion-label class="rating-label">Custom Icon</ion-label>
+          <app-rating-input class="custom-icon-example" formControlName="rate3" max="5" iconOutline="heart-outline" iconHalf="heart-half" iconFull="heart"></app-rating-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Add & Subtract</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="counterForm">
+      <ion-list class="counter-list" lines="full">
+        <ion-item class="counter-item">
+          <ion-label class="counter-label">Amount</ion-label>
+          <app-counter-input formControlName="counter"></app-counter-input>
+        </ion-item>
+        <ion-item class="counter-item">
+          <ion-label class="counter-label">Bedrooms</ion-label>
+          <ion-label class="counter-value">{{counterForm.controls.counter2.value}}</ion-label>
+          <app-counter-input formControlName="counter2" basic></app-counter-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Show / Hide Password</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="passwordForm">
+      <ion-list class="counter-list" lines="full">
+        <ion-item class="input-item">
+          <app-show-hide-password>
+            <ion-input type="password" placeholder="Password" formControlName="password"></ion-input>
+          </app-show-hide-password>
+        </ion-item>
+        <ion-item class="input-item">
+          <app-show-hide-password textButton="true">
+            <ion-input type="password" placeholder="Password" formControlName="password2"></ion-input>
+          </app-show-hide-password>
+        </ion-item>
+      </ion-list>
+    </form>
+
   </div>
 </ion-content>

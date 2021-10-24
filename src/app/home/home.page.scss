@@ -1,27 +1,39 @@
-#container {
-  text-align: center;
+.ratings-list {
+  .rating-label {
+    font-size: 14px;
+		font-weight: 500;
+		letter-spacing: 0.2px;
+		color: var(--ion-color-medium);
+  }
 
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
+  app-rating-input {
+    --rating-color: var(--ion-color-warning);
+  }
+
+  app-rating-input.custom-icon-example {
+    --rating-color: var(--ion-color-danger);
+  }
 }
 
-#container strong {
-  font-size: 20px;
-  line-height: 26px;
-}
+.counter-list {
+  .counter-item {
+    .counter-label {
+      font-size: 14px;
+			font-weight: 500;
+			letter-spacing: 0.2px;
+			color: var(--ion-color-medium);
+    }
 
-#container p {
-  font-size: 16px;
-  line-height: 22px;
+    .counter-value {
+      text-align: right;
+      margin-inline-end: 20px;
+      color: var(--ion-color-primary);
+    }
 
-  color: #8c8c8c;
-
-  margin: 0;
-}
-
-#container a {
-  text-decoration: none;
+    app-counter-input {
+      --counter-background: transparent;
+      --counter-color: var(--ion-color-primary);
+      --counter-border-color: var(--ion-color-primary);
+    }
+  }
 }

@@ -1,0 +1,7 @@
+<ion-button class="rating-icon" fill="clear" shape="round" *ngFor="let r of range; let i = index" (click)="rate(i + 1)">
+	<ion-icon slot="icon-only"
+		[name]="value === undefined ?
+		iconOutline :
+		(value > i ? (value < i+1 ? iconHalf : iconFull) : iconOutline)">
+	</ion-icon>
+</ion-button>

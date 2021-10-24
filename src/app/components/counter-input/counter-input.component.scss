@@ -1,0 +1,93 @@
+app-counter-input {
+  --counter-background: #000;
+  --counter-color: #FFF;
+  --counter-color-activated: #FFF;
+  --counter-border-color: #000;
+  --counter-border-radius-outer: 50%;
+  --counter-border-radius-inner: 50%;
+  --counter-size: 30px;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+
+  ion-button.counter-icon {
+    &.button-solid {
+      --background: var(--counter-background);
+      --background-activated: var(--counter-color);
+      --color: var(--counter-color);
+      --color-activated: var(--counter-color-activated);
+      --border-width: 1px;
+      --border-style: solid;
+      --border-color: var(--counter-border-color);
+      --box-shadow: none;
+      --border-radius: var(--counter-border-radius-outer) var(--counter-border-radius-inner) var(--counter-border-radius-inner) var(--counter-border-radius-outer);
+      --padding-bottom: 3px;
+      --padding-end: 3px;
+      --padding-start: 3px;
+      --padding-top: 3px;
+    }
+
+    margin: 0px;
+  }
+
+  .counter-value {
+    color: var(--counter-color);
+    margin: 0px 10px;
+    width: 2.2ch;
+    text-align: center;
+    font-feature-settings: 'tnum';
+    font-variant-numeric: tabular-nums;
+  }
+
+  &:not([basic]) {
+    // Force each counter button to have a 1:1 aspect ratio
+    .button-outer {
+      width: var(--counter-size);
+
+      .button-wrapper {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        width: 100%;
+        padding-bottom: 100%;
+
+        .counter-icon {
+          position: absolute;
+          top: 0px;
+          bottom: 0px;
+          left: 0px;
+          right: 0px;
+          height: auto;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  &[basic] {
+    --counter-border-radius-outer: 12px;
+    --counter-border-radius-inner: 0px;
+
+    .counter-value {
+      display: none;
+    }
+
+    .button-outer {
+      &:first-child {
+        ion-button.counter-icon {
+          --border-radius: var(--counter-border-radius-outer) var(--counter-border-radius-inner) var(--counter-border-radius-inner) var(--counter-border-radius-outer);
+        }
+      }
+
+      &:last-child {
+        // To avoid double border
+        margin-left: -1px;
+
+        ion-button.counter-icon {
+          --border-radius: var(--counter-border-radius-inner) var(--counter-border-radius-outer) var(--counter-border-radius-outer) var(--counter-border-radius-inner);
+        }
+      }
+    }
+  }
+}
